@@ -1,0 +1,9 @@
+*/15 * * * * sudo sh /home/pi/videorecorder/config/checkServer.sh
+5 * * * * rsync -az -e "ssh -i /neuu/app/load-cell-pi-code/config/neuu-server1.pem" /home/pi/videorecorder/logs/*CAMERA_LOG* ubuntu@13.233.28.40:/home/ubuntu/logs/
+* 1 * * * sudo sh /home/pi/videorecorder/config/checkUsb.sh
+* 1 * * * sudo sh /home/pi/videorecorder/config/camera.sh
+5 */1 * * * sudo service vncserver-x11-serviced restart
+0 0 * * * rm /home/pi/videorecorder/logs/out.log
+0 2 * * */3 rm /home/pi/videorecorder/logs/access.log
+*/15 * * * * curl localhost:8100/getCameraStatus
+*/10 * * * * sudo python /home/pi/videorecorder/config/checkVideoSize.py
