@@ -55,7 +55,7 @@ def ping():
 def startCam():
 
     global capture
-    #print "capture"+str(capture)
+    print("capture"+str(capture))
     global out
     global vs
     print("Request: /startCam")
